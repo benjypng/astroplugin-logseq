@@ -38,10 +38,6 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/npm",
-      {
-        "provenance": true,
-        "verifyConditions": false
-      },
       "@semantic-release/github"
     ]
   },
