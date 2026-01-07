@@ -29,7 +29,7 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "prepublishOnly": "npm run build",
-    "prepare": "husky",
+    "prepare": "command -v husky >/dev/null && husky || true",
     "lint:precommit": "echo \"Running eslint\" && npx eslint . --fix && echo \"Running tsc\" && tsc && echo \"Running build\" && bun run build"
   },
   "publishConfig": {
