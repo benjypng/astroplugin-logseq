@@ -1,4 +1,4 @@
-name: Release
+name: semantic release to npmjs
 
 on:
   push:
@@ -7,30 +7,26 @@ on:
 
 jobs:
   release:
-    name: Semantic Release
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      issues: write
-      pull-requests: write
+      contents: write 
+      id-token: write
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
-          fetch-depth: 0
+          fetch-depth: 0 
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install Dependencies
-        run: npm ci
+      - run: npm ci
+      
+      - run: npm run build 
 
-      - name: Semantic Release
+      - run: npx semantic-release
         env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release

@@ -1,6 +1,5 @@
 {
   "name": "astroplugin-logseq",
-  "version": "0.0.2",
   "author": "benjypng",
   "description": "Astro integration to sync Logseq pages as content collections",
   "license": "MIT",
@@ -39,6 +38,8 @@
       "main"
     ],
     "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
       "@semantic-release/npm",
       "@semantic-release/github"
     ]
