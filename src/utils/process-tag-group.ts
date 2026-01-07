@@ -1,8 +1,8 @@
 import { format } from 'date-fns'
-import { getPageBlocksTree, getRawResponse } from 'src/api'
-import { MappedResponse, TagTarget } from 'src/types'
 import { Wretch } from 'wretch/types'
 
+import { getPageBlocksTree, getRawResponse } from '../api'
+import { MappedResponse, TagTarget } from '../types'
 import { recursivelyGetContent, writeToMd } from '.'
 
 export const processTagGroup = async (
