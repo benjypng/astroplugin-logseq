@@ -1,0 +1,1 @@
+# astroplugin-logseq
