@@ -23,8 +23,18 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - run: npm ci
-      
       - run: npm run build 
+
+      - name: Check Token
+        run: |
+          if [ -z "$NODE_AUTH_TOKEN" ]; then
+            echo "Error: NODE_AUTH_TOKEN is empty!"
+            exit 1
+          else
+            echo "Success: NODE_AUTH_TOKEN is found (length ${#NODE_AUTH_TOKEN})"
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - run: npx semantic-release
         env:

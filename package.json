@@ -4,10 +4,7 @@
   "description": "Astro integration to sync Logseq pages as content collections",
   "license": "MIT",
   "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/benjypng/astroplugin-logseq.git"
-  },
+  "repository": "benjypng/astroplugin-logseq",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -32,6 +29,10 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "release": {
     "branches": [
