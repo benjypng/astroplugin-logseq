@@ -1,9 +1,13 @@
+export interface TagTarget {
+  tag: string
+  directory: string
+}
+
 export interface LogseqIntegrationOptions {
   token: string
+  targets: TagTarget[]
   apiUrl?: string
   pollingInterval?: number
-  directory?: string
-  tag: string
 }
 
 export interface LogseqResponse {
