@@ -1,6 +1,6 @@
 {
   "name": "astroplugin-logseq",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "benjypng",
   "description": "Astro integration to sync Logseq pages as content collections",
   "license": "MIT",
