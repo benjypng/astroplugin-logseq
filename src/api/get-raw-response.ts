@@ -5,6 +5,7 @@ import { LogseqResponse } from '../types'
 
 export const getRawResponse = async (
   api: Wretch,
+  tag: string,
   logger: AstroIntegrationLogger,
 ) => {
   const query = `
@@ -18,7 +19,7 @@ export const getRawResponse = async (
                  :where
                  [?p :block/name]
                  [?p :block/tags ?t]
-                 [?t :block/name "public"]]`
+                 [?t :block/name "${tag}"]]`
 
   try {
     return (

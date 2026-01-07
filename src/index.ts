@@ -14,6 +14,7 @@ export default function logseqIntegration(
     apiUrl = 'http://127.0.0.1:12315/api',
     pollingInterval = 1000,
     directory = 'src/content/docs/blog',
+    tag = 'public',
   } = options
 
   return {
@@ -31,7 +32,7 @@ export default function logseqIntegration(
 
         setInterval(async () => {
           try {
-            const rawResponse = await getRawResponse(api, logger)
+            const rawResponse = await getRawResponse(api, tag, logger)
             if (!rawResponse) return
 
             const mappedResponse: MappedResponse[] = []

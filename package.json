@@ -4,6 +4,7 @@
   "author": "benjypng",
   "description": "Astro integration to sync Logseq pages as content collections",
   "license": "MIT",
+  "repository": "benjypng/astroplugin-logseq",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
