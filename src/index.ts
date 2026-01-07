@@ -46,7 +46,6 @@ export default function logseqIntegration(
                 content: recursivelyGetContent(pbt),
               })
             }
-
             await writeToMd(directory, mappedResponse, logger)
           } catch (e: any) {
             logger.info(e.message || String(e))
