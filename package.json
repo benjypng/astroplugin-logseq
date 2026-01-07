@@ -30,6 +30,10 @@
     "dev": "tsup --watch",
     "prepublishOnly": "npm run build"
   },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "release": {
     "branches": [
       "main"
