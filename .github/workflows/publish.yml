@@ -1,4 +1,4 @@
-name: semantic release to npmjs
+name: publish.yml
 
 on:
   push:
