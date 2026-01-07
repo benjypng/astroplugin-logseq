@@ -1,0 +1,57 @@
+{
+  "name": "astroplugin-logseq",
+  "version": "0.0.1",
+  "author": "benjypng",
+  "description": "Astro integration to sync Logseq pages as content collections",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "astro",
+    "astro-integration",
+    "logseq",
+    "cms"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "astro": "^5.0.0"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "wretch": "^3.0.6"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "astro": "^5.16.6",
+    "@types/node": "^25.0.3",
+    "typescript": "^5.5.4",
+    "@eslint/js": "^9.8.0",
+    "@types/eslint": "^9.6.1",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@typescript-eslint/eslint-plugin": "^8.51.0",
+    "@typescript-eslint/parser": "^8.51.0",
+    "eslint": "^9.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "prettier": "^3.7.4",
+    "typescript-eslint": "^8.51.0"
+  }
+}
