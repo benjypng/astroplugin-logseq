@@ -16,6 +16,7 @@ It operates by polling the Logseq HTTP API for pages containing specific tags an
 * **Selective Sync:** Filters pages based on user-defined tags (e.g., `blog`, `notes`) and maps them to specific target directories.
 * **Block Preservation:** Maintains the hierarchy of Logseq blocks, rendering them as nested lists in the output Markdown.
 * **Change Detection:** Compares fetched content against existing files on disk to minimize unnecessary write operations.
+* **Handles references:** Strips away `[[]]` unless they are in a code block.
 
 ## Installation
 npm install astroplugin-logseq
