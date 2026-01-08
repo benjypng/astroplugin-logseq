@@ -9,6 +9,8 @@ This plugin creates a synchronization bridge between a local Logseq graph and As
 
 It operates by polling the Logseq HTTP API for pages containing specific tags and writing them as Markdown files to defined directories within an Astro project. This allows a Logseq graph to function as a content source for static site generation without manual export steps.
 
+![](./astro-plugin-demo.gif)
+
 ## Functionality
 * **API Polling:** Connects to the local Logseq HTTP API to retrieve page content.
 * **Selective Sync:** Filters pages based on user-defined tags (e.g., `blog`, `notes`) and maps them to specific target directories.
