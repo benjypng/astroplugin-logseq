@@ -1,18 +1,18 @@
 import { AstroIntegrationLogger } from 'astro'
 import { Wretch } from 'wretch/types'
 
-import { ContentBlock, LogseqResponse } from '../types'
+import { ContentBlock, LogseqPageResponse } from '../types'
 
 export const getPageBlocksTree = async (
   api: Wretch,
-  item: LogseqResponse,
+  page: LogseqPageResponse,
   logger: AstroIntegrationLogger,
 ) => {
   try {
     return await api
       .post({
         method: 'logseq.Editor.getPageBlocksTree',
-        args: [item.title.toLowerCase()],
+        args: [page.title.toLowerCase()],
       })
       .json<ContentBlock[]>()
   } catch (e) {

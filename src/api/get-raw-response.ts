@@ -1,7 +1,7 @@
 import { AstroIntegrationLogger } from 'astro'
 import { Wretch } from 'wretch/types'
 
-import { LogseqResponse } from '../types'
+import { LogseqPageResponse } from '../types'
 
 export const getRawResponse = async (
   api: Wretch,
@@ -15,7 +15,7 @@ export const getRawResponse = async (
                          :block/created-at
                          :block/updated-at
                          :block/title
-                        {:block/_parent ...}])
+                        {:block/_parent [:block/uuid]}])
                  :where
                  [?p :block/name]
                  [?p :block/tags ?t]
@@ -28,7 +28,7 @@ export const getRawResponse = async (
           method: 'logseq.DB.datascriptQuery',
           args: [query],
         })
-        .json<LogseqResponse[][]>()) ?? []
+        .json<LogseqPageResponse[][]>()) ?? []
     )
   } catch (e) {
     logger.info(

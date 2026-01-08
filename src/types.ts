@@ -10,16 +10,17 @@ export interface LogseqIntegrationOptions {
   pollingInterval?: number
 }
 
-export interface LogseqResponse {
+export interface LogseqPageResponse {
   ['created-at']: number
+  ['updated-at']: number
   name: string
   title: string
-  ['updated-at']: number
-  _parent: LogseqResponse[]
+  _parent: { uuid: string }[]
 }
 
 export interface ContentBlock {
-  title: string
+  fullTitle: string
+  [':logseq.property.node/display-type']?: string
   children?: ContentBlock[]
 }
 

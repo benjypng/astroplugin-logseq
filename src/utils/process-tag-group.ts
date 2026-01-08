@@ -17,14 +17,14 @@ export const processTagGroup = async (
 
   const mappedResponse: MappedResponse[] = []
 
-  for (const item of rawResponse.flat()) {
-    const pbt = await getPageBlocksTree(api, item, logger)
+  for (const page of rawResponse.flat()) {
+    const pbt = await getPageBlocksTree(api, page, logger)
     if (!pbt) continue
 
     mappedResponse.push({
-      createdAt: format(item['created-at'], 'yyyy-MM-dd'),
-      updatedAt: format(item['updated-at'], 'yyyy-MM-dd'),
-      pageTitle: item.title,
+      createdAt: format(page['created-at'], 'yyyy-MM-dd'),
+      updatedAt: format(page['updated-at'], 'yyyy-MM-dd'),
+      pageTitle: page.title,
       content: recursivelyGetContent(pbt),
     })
   }
