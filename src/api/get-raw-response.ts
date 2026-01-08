@@ -5,21 +5,23 @@ import { LogseqPageResponse } from '../types'
 
 export const getRawResponse = async (
   api: Wretch,
+  datePropPageIdent: string | undefined,
   tag: string,
   logger: AstroIntegrationLogger,
 ) => {
   const query = `
-                [:find (pull ?p
-                        [:block/name
-                         :block/full-title
-                         :block/created-at
-                         :block/updated-at
-                         :block/title
-                        {:block/_parent [:block/uuid]}])
-                 :where
-                 [?p :block/name]
-                 [?p :block/tags ?t]
-                 [?t :block/name "${tag}"]]`
+               [:find (pull ?p
+                       [:block/name
+                        :block/full-title
+                        :block/created-at
+                        :block/updated-at
+                        :block/title
+                        ${datePropPageIdent && `{${datePropPageIdent} [:block/journal-day]}`}
+                       {:block/_parent [:block/uuid]}])
+                :where
+                [?p :block/name]
+                [?p :block/tags ?t]
+                [?t :block/name "${tag}"]]`
 
   try {
     return (

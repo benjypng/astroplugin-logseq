@@ -17,6 +17,7 @@ It operates by polling the Logseq HTTP API for pages containing specific tags an
 * **Block Preservation:** Maintains the hierarchy of Logseq blocks, rendering them as nested lists in the output Markdown.
 * **Change Detection:** Compares fetched content against existing files on disk to minimize unnecessary write operations.
 * **Handles references:** Strips away `[[]]` unless they are in a code block.
+* **Set custom property for published date:** Customise the Logseq property used to set the published date in Astro.
 
 ## Installation
 npm install astroplugin-logseq
@@ -41,6 +42,9 @@ export default defineConfig({
     logseq({
       // Required: The authorization token generated in Logseq
       token: 'YOUR_SECRET_LOGSEQ_TOKEN',
+
+      // Required: The Logseq property used for the page you want to publish
+      dateRef: 'publish-date',
 
       // Required: mapping tags to destination directories
       targets: [

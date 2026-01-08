@@ -22,7 +22,7 @@ export const writeToMd = async (
         const filePath = path.join(targetDir, `${cleanSlug}.md`)
         const fileContent = `---
 title: ${page.pageTitle}
-date: ${page.createdAt}
+date: ${page.date}
 ---
 ${page.content}`
         const contentToSave = fileContent.trim()

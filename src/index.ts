@@ -10,6 +10,7 @@ export default function logseqIntegration(
   const {
     token,
     targets,
+    dateRef,
     apiUrl = 'http://127.0.0.1:12315/api',
     pollingInterval = 1000,
   } = options
@@ -18,7 +19,7 @@ export default function logseqIntegration(
     name: 'astro-logseq-publish',
     hooks: {
       'astro:server:setup': ({ logger }) => {
-        logger.info('🚀 Logseq Poller Started (Every 3s)')
+        logger.info(`🚀 Logseq Poller Started (Every ${pollingInterval}ms)`)
 
         const api = wretch()
           .url(apiUrl)
@@ -30,7 +31,9 @@ export default function logseqIntegration(
         setInterval(async () => {
           try {
             await Promise.all(
-              targets.map((target) => processTagGroup(api, target, logger)),
+              targets.map((target) =>
+                processTagGroup(api, dateRef, target, logger),
+              ),
             )
           } catch (e: any) {
             logger.error(e.message || String(e))
