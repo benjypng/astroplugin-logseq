@@ -5,7 +5,7 @@ const processBlockContent = (block: ContentBlock): string => {
 
   if (block[':logseq.property.node/display-type'] === 'code') {
     const codeLanguage = block[':logseq.property.code/lang'] ?? ''
-    return `\`\`\`${codeLanguage}\n${rawText}\n\`\`\``
+    return `\`\`\`${codeLanguage.toLowerCase()}\n${rawText}\n\`\`\``
   }
 
   return rawText.replace(
