@@ -27,6 +27,7 @@ export interface ContentBlock {
   fullTitle: string
   [':logseq.property.node/display-type']?: string
   [':logseq.property/heading']?: string
+  [':logseq.property.code/lang']?: string
   children?: ContentBlock[]
 }
 

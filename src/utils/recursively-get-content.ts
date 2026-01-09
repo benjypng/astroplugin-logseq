@@ -3,6 +3,11 @@ import { ContentBlock } from '../types'
 const processBlockContent = (block: ContentBlock): string => {
   const rawText = block.fullTitle ?? ''
 
+  if (block[':logseq.property.node/display-type'] === 'code') {
+    const codeLanguage = block[':logseq.property.code/lang'] ?? ''
+    return `\`\`\`${codeLanguage}\n${rawText}\n\`\`\``
+  }
+
   return rawText.replace(
     /(`[^`]+`)|\[\[(.*?)\]\]/g,
     (_match, code, linkContent) => {
