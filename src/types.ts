@@ -26,6 +26,7 @@ export interface LogseqPageResponse {
 export interface ContentBlock {
   fullTitle: string
   [':logseq.property.node/display-type']?: string
+  [':logseq.property/heading']?: string
   children?: ContentBlock[]
 }
 
